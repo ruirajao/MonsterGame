@@ -1,6 +1,4 @@
-<<<<<<< HEAD
-package PACKAGE_NAME;public class Monster {
-=======
+
 public abstract class Monster {
 
     private int hitpoints;
@@ -37,5 +35,4 @@ public abstract class Monster {
     public String getMonsterName() {
         return monsterName;
     }
->>>>>>> 09901d8 (Initial commit - Working game)
 }

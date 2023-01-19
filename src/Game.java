@@ -1,6 +1,4 @@
-<<<<<<< HEAD
-package PACKAGE_NAME;public class Game {
-=======
+
 public class Game {
     private Player p1;
     private Player p2;
@@ -54,7 +52,4 @@ public class Game {
     public int getNumOfMonster() {
         return numOfMonster;
     }
-
-
->>>>>>> 09901d8 (Initial commit - Working game)
 }
