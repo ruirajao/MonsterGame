@@ -4,54 +4,37 @@ public class Game {
     private Player p2;
     private int numOfMonster;
 
-    public static void initializeGame(Game game, Player p1, Player p2) {
-        p1.setGame(game);
-        p2.setGame(game);
-    }
-
-    public static void leaveGame(Player p1, Player p2) {
-        p1.setGame(null);
-        p2.setGame(null);
-    }
-
-
-    public Game(Player p1, Player p2, int numOfMonster) {
-        this.p1 = p1;
-        this.p2 = p2;
-        Player nuno = new Player("Bushnell",  4)
-        //this.numOfMonster = RandomNumber.randomGeneratedNumber(6,2); //Random number 2-5
-        this.numOfMonster = numOfMonster;
+    public Game() {
+        this.numOfMonster = RandomNumber.randomGeneratedNumber(3, 2); //Random number 2-5
+        this.p1 = new Player("Bushnell", this.numOfMonster);
+        this.p2 = new Player("Raja", this.numOfMonster);
         System.out.println("Each player gets to choose " + this.numOfMonster + " Monsters.");
         System.out.println("_".repeat(100));
     }
 
-    public void play(Player p1, Player p2) {
-        while (!end(p1, p2)) {
-            p1.defend(p2.attak())
-            p1.pickAttacker(p2.pickDefender());
-            p2.pickAttacker(p1.pickDefender());
+    public void play() {
+        this.p1.pickTeam();
+        this.p2.pickTeam();
+        while (!end()) {
+            /*
+            tempAtt = p1.pickAttacker();
+            tempDef = p2.pickDefender();
+            temp.attack(tempDef);
+             */
+            this.p1.pickAttacker(this.p2.pickDefender());
+            this.p2.pickAttacker(this.p1.pickDefender());
         }
-        numOfMonster = 0;
     }
 
-    public boolean end(Player p1, Player p2) {
-        for (int i = 0; i < numOfMonster; i++) {
-            if (!p1.getTeam()[i].isAlive()) {
-                p1.setNumDeadMonster(getNumOfMonster() + 1);
-                System.out.println(p2.getNickname() + " has won the game.");
-                return true;
-            }
-            if (!p2.getTeam()[i].isAlive()) {
-                p2.setNumDeadMonster(getNumOfMonster() + 1);
-                System.out.println(p1.getNickname() + " has won the game.");
-                return true;
-            }
+    private boolean end() {
+        if (this.numOfMonster == p1.getNumOfMonstersKilled()) {
+            System.out.println(p1.getNickname() + " has won the game.");
+            return true;
+        }
+        if (this.numOfMonster == p2.getNumOfMonstersKilled()) {
+            System.out.println(p2.getNickname() + " has won the game.");
+            return true;
         }
         return false;
-    }
-
-
-    public int getNumOfMonster() {
-        return numOfMonster;
     }
 }

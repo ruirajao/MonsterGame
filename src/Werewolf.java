@@ -1,7 +1,7 @@
 public class Werewolf extends Monster {
 
     public Werewolf() {
-        super(150, 30, "Werewolf");
+        super(100, 30, "Werewolf");
     }
 
     @Override

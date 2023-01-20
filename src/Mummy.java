@@ -3,7 +3,7 @@ public class Mummy extends Monster {
     private int attackCounter;
 
     public Mummy() {
-        super(200, 50, "Mummy");
+        super(100, 50, "Mummy");
     }
 
     @Override
@@ -11,6 +11,8 @@ public class Mummy extends Monster {
         attackCounter++;
         if (attackCounter == 3) {
             this.setHitpoints(this.getHitpoints() - this.getDamage() / 2);
+            System.out.println("Mummy failed the attack and got some bandages unrolled. It took "
+                    + (this.getDamage() / 2) + " damage.");
             attackCounter = 0;
             return;
         }

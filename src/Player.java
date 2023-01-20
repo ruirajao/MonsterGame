@@ -1,22 +1,24 @@
 public class Player {
     private final String nickname;
-    private Monster[] team = new Monster[5];
-    private int numDeadMonster;
-    private Game game;
+    private Monster[] team;
+    private int numOfMonsters;
+    private  int numOfMonstersKilled;
 
-    public void setGame(Game game) {
-        this.game = game;
+    public int getNumOfMonstersKilled() {
+        return numOfMonstersKilled;
     }
 
-    public Player(String nickname) {
+    public Player(String nickname, int numOfMonsters) {
         this.nickname = nickname;
+        this.numOfMonsters = numOfMonsters;
+        this.team = new Monster[numOfMonsters];
     }
 
-    public void pickTeam(Game game, int numWerewolf, int numVampire, int numMummy) {
-        if (numWerewolf + numVampire + numMummy != game.getNumOfMonster()) {
-            System.out.println("You have to choose " + game.getNumOfMonster() + " monsters.");
-            return;
-        }
+    public void pickTeam() {
+        int numWerewolf = RandomNumber.randomGeneratedNumber(numOfMonsters, 0);
+        int numVampire = RandomNumber.randomGeneratedNumber(numOfMonsters-numWerewolf, 0);
+        int numMummy = numOfMonsters-numWerewolf-numVampire;
+
         int index = 0;
         for (int i = 0; i < numWerewolf; i++) {
             team[index] = new Werewolf();
@@ -32,27 +34,28 @@ public class Player {
         }
     }
 
-    public Monster pickAttacker(Monster defender) {
-        int temp1 = RandomNumber.randomGeneratedNumber(game.getNumOfMonster(), 0);
+    public void pickAttacker(Monster defender) {
+        int temp1 = RandomNumber.randomGeneratedNumber(numOfMonsters, 0);
         while (!team[temp1].isAlive()) {
-            //System.out.println("Your pick as attack " + team[temp1].getClass() + " is already dead.");
-            temp1 = RandomNumber.randomGeneratedNumber(game.getNumOfMonster(), 0);
+            temp1 = RandomNumber.randomGeneratedNumber(numOfMonsters, 0);
         }
         System.out.println(this.nickname + "´s picked " + team[temp1].getMonsterName() + " as an attacker.");
-
-        return  team[temp1] ;
+        team[temp1].attack(defender);
+        if (defender.isAlive() == false) {
+            numOfMonstersKilled++;
+        }
     }
 
-    private Monster pickDefender() {
-        int temp2 = RandomNumber.randomGeneratedNumber(game.getNumOfMonster(), 0);
+    public Monster pickDefender() {
+        int temp2 = RandomNumber.randomGeneratedNumber(numOfMonsters, 0);
         while (!team[temp2].isAlive()) {
-            System.out.println("Your pick as defender " + team[temp2].getMonsterName() + " is already dead.");
-            temp2 = RandomNumber.randomGeneratedNumber(game.getNumOfMonster(), 0);
+            temp2 = RandomNumber.randomGeneratedNumber(numOfMonsters, 0);
         }
         System.out.println("You picked " + team[temp2].getMonsterName() + " as a defender.");
         return team[temp2];
     }
 
+    /*
     public void defend(int hitPoints){
         if (hitPoints <= 0){
             return;
@@ -63,15 +66,8 @@ public class Player {
     public  int attack(){
         return  pickAttacker().getHitpoints();
     }
+    */
 
-
-    public Monster[] getTeam() {
-        return team;
-    }
-
-    public void setNumDeadMonster(int numDeadMonster) {
-        this.numDeadMonster = numDeadMonster;
-    }
 
     public String getNickname() {
         return nickname;

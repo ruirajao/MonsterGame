@@ -3,7 +3,7 @@ public class Vampire extends Monster {
     private final String name = "Vampire";
 
     public Vampire() {
-        super(120, 20, "Vampire");
+        super(70, 20, "Vampire");
     }
 
     @Override
