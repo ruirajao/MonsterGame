@@ -1,6 +1,5 @@
 
 public abstract class Monster {
-
     private int hitpoints;
     private final int damage;
     private final String monsterName;

@@ -3,11 +3,6 @@ public class Player {
     public Monster[] team;
     private Monster[] deadTeam;
     private int numOfMonsters;
-    private  int numOfMonstersKilled;
-
-    public int getNumOfMonstersKilled() {
-        return numOfMonstersKilled;
-    }
 
     public Player(String nickname, int numOfMonsters) {
         this.nickname = nickname;
@@ -39,20 +34,13 @@ public class Player {
     public void pickAttacker(Monster defender) {
         int temp1 = RandomNumber.randomGeneratedNumber(numOfMonsters, 0);
 
-/*
-        for (int i = 0; i < numOfMonster; i++) {
-            temp1 = RandomNumber.randomGeneratedNumber(numOfMonsters, 0);
-            if (!team[temp1].isAlive()) {
-                return;
-            }
-        }*/
         while (!team[temp1].isAlive()) {
             temp1 = RandomNumber.randomGeneratedNumber(numOfMonsters, 0);
         }
 
         System.out.println(this.nickname + "´s picked " + team[temp1].getMonsterName() + " as an attacker.");
         team[temp1].attack(defender);
-        if (team[temp1].isAlive() == false) {
+        if (!team[temp1].isAlive()) {
             deadTeam[temp1] = team[temp1];
         }
     }
@@ -66,28 +54,6 @@ public class Player {
 
         return team[temp2];
     }
-
-    /*
-    public void defend(int hitPoints){
-        if (hitPoints <= 0){
-            return;
-        }
-        pickDefender().suffer(hitPoints);
-
-    }
-    public  int attack(){
-        return  pickAttacker().getHitpoints();
-    }
-    */
-
-    public Monster getDeadTeamLast(int index) {
-        return deadTeam[index];
-    }
-
-    public int getDeadTeam() {
-        return deadTeam.length -1;
-    }
-
     public String getNickname() {
         return nickname;
     }
