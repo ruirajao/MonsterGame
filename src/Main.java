@@ -21,5 +21,7 @@ RULES OF THE GAME:
         rui.pickTeam(game1, 0, 1, 2);
         game1.play(nuno, rui);
         Game.leaveGame(nuno, rui);
+
+
     }
 }

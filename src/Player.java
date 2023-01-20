@@ -32,17 +32,18 @@ public class Player {
         }
     }
 
-    public void pickAttacker(Monster defender) {
+    public Monster pickAttacker(Monster defender) {
         int temp1 = RandomNumber.randomGeneratedNumber(game.getNumOfMonster(), 0);
         while (!team[temp1].isAlive()) {
             //System.out.println("Your pick as attack " + team[temp1].getClass() + " is already dead.");
             temp1 = RandomNumber.randomGeneratedNumber(game.getNumOfMonster(), 0);
         }
         System.out.println(this.nickname + "´s picked " + team[temp1].getMonsterName() + " as an attacker.");
-        team[temp1].attack(defender);
+
+        return  team[temp1] ;
     }
 
-    public Monster pickDefender() {
+    private Monster pickDefender() {
         int temp2 = RandomNumber.randomGeneratedNumber(game.getNumOfMonster(), 0);
         while (!team[temp2].isAlive()) {
             System.out.println("Your pick as defender " + team[temp2].getMonsterName() + " is already dead.");
@@ -50,6 +51,17 @@ public class Player {
         }
         System.out.println("You picked " + team[temp2].getMonsterName() + " as a defender.");
         return team[temp2];
+    }
+
+    public void defend(int hitPoints){
+        if (hitPoints <= 0){
+            return;
+        }
+        pickDefender().suffer(hitPoints);
+
+    }
+    public  int attack(){
+        return  pickAttacker().getHitpoints();
     }
 
 

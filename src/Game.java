@@ -18,6 +18,7 @@ public class Game {
     public Game(Player p1, Player p2, int numOfMonster) {
         this.p1 = p1;
         this.p2 = p2;
+        Player nuno = new Player("Bushnell",  4)
         //this.numOfMonster = RandomNumber.randomGeneratedNumber(6,2); //Random number 2-5
         this.numOfMonster = numOfMonster;
         System.out.println("Each player gets to choose " + this.numOfMonster + " Monsters.");
@@ -26,6 +27,7 @@ public class Game {
 
     public void play(Player p1, Player p2) {
         while (!end(p1, p2)) {
+            p1.defend(p2.attak())
             p1.pickAttacker(p2.pickDefender());
             p2.pickAttacker(p1.pickDefender());
         }
