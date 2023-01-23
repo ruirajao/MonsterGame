@@ -19,23 +19,35 @@ public class Player {
     }
 
     public void pickTeam() {
-        int numWerewolf = RandomNumber.randomGeneratedNumber(team.length, 0);
-        int numVampire = RandomNumber.randomGeneratedNumber(team.length-numWerewolf, 0);
-        int numMummy = team.length-numWerewolf-numVampire;
+        int numWerewolf = 0;
+        int numVampire = 0;
+        int numMummy = 0;
 
-        int index = 0;
-        for (int i = 0; i < numWerewolf; i++) {
-            team[index] = new Werewolf();
-            index++;
+        for (int i = 0; i < team.length; i++) {
+            int monsterPick = RandomNumber.randomGeneratedNumber(3, 1);
+            switch (monsterPick){
+
+                case 1:
+                    team[i] = new Werewolf();
+                    numWerewolf++;
+                    break;
+
+                case 2:
+                    team[i] = new Vampire();
+                    numVampire++;
+                    break;
+
+                case 3:
+                    team[i] = new Mummy();
+                    numMummy++;
+                    break;
+            }
         }
-        for (int j = 0; j < numVampire; j++) {
-            team[index] = new Vampire();
-            index++;
-        }
-        for (int k = 0; k < numMummy; k++) {
-            team[index] = new Mummy();
-            index++;
-        }
+        System.out.println(this.nickname + " has:\n" +
+                "- " + numWerewolf + " Werewolf(s) \n" +
+                "- " + numVampire + " Vampire(s)\n" +
+                "- " + numMummy + " Mummy(ies)");
+        System.out.println("=".repeat(50));
     }
 
     public int attack() {
