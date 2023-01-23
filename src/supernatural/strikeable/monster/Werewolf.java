@@ -8,11 +8,10 @@ public class Werewolf extends Monster {
     }
 
     @Override
-    public void attack(Monster target) {
-        target.setHitpoints(target.getHitpoints() - this.getDamage());
-        System.out.println("supernatural.strikeable.monster.Werewolf attacked " + target.getMonsterName() + " for " + this.getDamage() + " damage. \n" +
-                target.getMonsterName() + " now has " + target.getHitpoints() + " hitpoints.");
+    public int attack() {
+        System.out.println("Warwick attacks for " + this.getDamage() + " damage.");
         System.out.println(".".repeat(150));
+        return this.getDamage();
     }
 
 }

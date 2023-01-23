@@ -11,7 +11,11 @@ public class Witch extends Supernatural implements Strikeable {
     }
 
     @Override
-    public void attack(Monster target) {
+    public int attack() {
+
+        System.out.println("Morgana attack for " + this.getDamage() + " damage.");
+        System.out.println(".".repeat(150));
+        return this.getDamage();
 
     }
 }

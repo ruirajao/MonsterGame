@@ -6,13 +6,13 @@ public class Game {
     private Player p1;
     private Player p2;
     private int numOfMonster;
-    private Supernatural[] obstacle = {new Fairy(), new Witch()};
+    //private Supernatural[] obstacle = {new Fairy(), new Witch()};
 
     public Game() {
         this.numOfMonster = RandomNumber.randomGeneratedNumber(5, 2); //Random number 2-5
         this.p1 = new Player("Player 1", this.numOfMonster);
         this.p2 = new Player("Player 2", this.numOfMonster);
-        this.obstacle = obstacle;
+        //this.obstacle = obstacle;
         System.out.println("Each player gets to choose " + this.numOfMonster + " Monsters.");
         System.out.println("_".repeat(100));
     }

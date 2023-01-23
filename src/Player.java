@@ -52,18 +52,20 @@ public class Player {
         }
 
         System.out.println(this.nickname + "´s picked " + team[indexAttacker].getMonsterName() + " as an attacker.");
-        team[indexAttacker].attack(defender);
+        team[indexAttacker].attack();
 
     }
 
-    public Monster pickDefender() {
+    public void pickDefender(int damage) {
         int indexDefender = RandomNumber.randomGeneratedNumber(numOfMonsters, 0);
         while (!team[indexDefender].isAlive()) {
             indexDefender = RandomNumber.randomGeneratedNumber(numOfMonsters, 0);
         }
         System.out.println("You picked " + team[indexDefender].getMonsterName() + " as a defender.");
+        team[indexDefender].setHitpoints(team[indexDefender].getHitpoints()-damage);
 
-        return team[indexDefender];
+        if (team[indexDefender].getHitpoints() <= 0){
+        }
     }
     public String getNickname() {
         return nickname;

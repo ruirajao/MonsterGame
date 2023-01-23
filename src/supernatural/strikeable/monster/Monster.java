@@ -6,20 +6,19 @@ import supernatural.strikeable.Strikeable;
 public abstract class Monster extends Supernatural implements Strikeable {
     private int hitpoints;
 
+
     public Monster(int hitpoints, int damage, String monsterName) {
         super(damage, monsterName);
         this.hitpoints = hitpoints;
     }
 
-    public abstract void attack(Monster target);
-
+    public abstract int attack();
     public boolean isAlive() {
         if (this.hitpoints > 0) {
             return true;
         }
         return false;
     }
-
     public int getHitpoints() {
         return hitpoints;
     }

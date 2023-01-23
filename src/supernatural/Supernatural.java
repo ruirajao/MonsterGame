@@ -12,7 +12,7 @@ public abstract class Supernatural {
         this.monsterName = monsterName;
     }
 
-    public abstract void attack(Monster target);
+    public abstract int attack();
 
     public int getDamage() {
         return damage;

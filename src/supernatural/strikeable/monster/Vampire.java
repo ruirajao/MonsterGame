@@ -4,19 +4,19 @@ public class Vampire extends Monster {
 
 
     public Vampire() {
-        super(MonsterType.WEREWOLF.getHitpoints(), MonsterType
-                .WEREWOLF.getDamage(), MonsterType.WEREWOLF.getMonsterName());
+        super(MonsterType.VAMPIRE.getHitpoints(), MonsterType
+                .VAMPIRE.getDamage(), MonsterType.VAMPIRE.getMonsterName());
     }
 
     @Override
-    public void attack(Monster target) {
+    public int attack() {
         if (bite() == 0) {
             setHitpoints(getHitpoints() + (getDamage() / 2));
         }
-        target.setHitpoints(target.getHitpoints() - this.getDamage());
-        System.out.println("supernatural.strikeable.monster.Vampire attacked " + target.getMonsterName() + " for " + this.getDamage() + " damage. \n" +
-                target.getMonsterName() + " now has " + target.getHitpoints() + " hitpoints.");
+
+        System.out.println("Vladimir attacks for " + this.getDamage() + " damage.");
         System.out.println(".".repeat(150));
+        return this.getDamage();
     }
 
     public int bite() {
