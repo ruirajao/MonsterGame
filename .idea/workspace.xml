@@ -4,15 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65b18c71-5875-4640-bd28-12efd8605224" name="Changes" comment="- Changes do Guedes">
+    <list default="true" id="65b18c71-5875-4640-bd28-12efd8605224" name="Changes" comment="Initial commit - Working game">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Monster.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Mummy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Mummy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/monster/Monster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Mummy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/monster/Mummy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vampire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vampire.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Werewolf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Werewolf.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Vampire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/monster/Vampire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Werewolf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/monster/Werewolf.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,12 +45,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

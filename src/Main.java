@@ -2,7 +2,10 @@
 public class Main {
 
     public static void main(String[] args) {
-        Game game1 = new Game();
+
+        Player p1 = new Player("Player 1");
+        Player p2 = new Player("Player 2");
+        Game game1 = new Game(p1, p2);
         game1.play();
     }
 }

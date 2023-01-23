@@ -1,3 +1,4 @@
+package supernatural.strikeable.monster;
 
 public abstract class Monster {
     private int hitpoints;

@@ -1,14 +1,27 @@
+import supernatural.strikeable.monster.Werewolf;
+import supernatural.strikeable.monster.Monster;
+import supernatural.strikeable.monster.Mummy;
+import supernatural.strikeable.monster.Vampire;
+
 public class Player {
     private final String nickname;
     public Monster[] team;
-    private Monster[] deadTeam;
     private int numOfMonsters;
 
     public Player(String nickname, int numOfMonsters) {
         this.nickname = nickname;
         this.numOfMonsters = numOfMonsters;
         this.team = new Monster[numOfMonsters];
-        this.deadTeam = new Monster[numOfMonsters];
+    }
+
+    public Player(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public void setNumOfMonsters(int numOfMonsters) {
+        this.numOfMonsters = numOfMonsters;
+        this.team = new Monster[numOfMonsters];
+
     }
 
     public void pickTeam() {
@@ -32,27 +45,25 @@ public class Player {
     }
 
     public void pickAttacker(Monster defender) {
-        int temp1 = RandomNumber.randomGeneratedNumber(numOfMonsters, 0);
+        int indexAttacker = RandomNumber.randomGeneratedNumber(numOfMonsters, 0);
 
-        while (!team[temp1].isAlive()) {
-            temp1 = RandomNumber.randomGeneratedNumber(numOfMonsters, 0);
+        while (!team[indexAttacker].isAlive()) {
+            indexAttacker = RandomNumber.randomGeneratedNumber(numOfMonsters, 0);
         }
 
-        System.out.println(this.nickname + "´s picked " + team[temp1].getMonsterName() + " as an attacker.");
-        team[temp1].attack(defender);
-        if (!team[temp1].isAlive()) {
-            deadTeam[temp1] = team[temp1];
-        }
+        System.out.println(this.nickname + "´s picked " + team[indexAttacker].getMonsterName() + " as an attacker.");
+        team[indexAttacker].attack(defender);
+
     }
 
     public Monster pickDefender() {
-        int temp2 = RandomNumber.randomGeneratedNumber(numOfMonsters, 0);
-        while (!team[temp2].isAlive()) {
-            temp2 = RandomNumber.randomGeneratedNumber(numOfMonsters, 0);
+        int indexDefender = RandomNumber.randomGeneratedNumber(numOfMonsters, 0);
+        while (!team[indexDefender].isAlive()) {
+            indexDefender = RandomNumber.randomGeneratedNumber(numOfMonsters, 0);
         }
-        System.out.println("You picked " + team[temp2].getMonsterName() + " as a defender.");
+        System.out.println("You picked " + team[indexDefender].getMonsterName() + " as a defender.");
 
-        return team[temp2];
+        return team[indexDefender];
     }
     public String getNickname() {
         return nickname;

@@ -5,11 +5,22 @@ public class Game {
     private int numOfMonster;
 
     public Game() {
-        this.numOfMonster = RandomNumber.randomGeneratedNumber(3, 2); //Random number 2-5
-        this.p1 = new Player("Bushnell", this.numOfMonster);
-        this.p2 = new Player("Raja", this.numOfMonster);
+        this.numOfMonster = RandomNumber.randomGeneratedNumber(5, 2); //Random number 2-5
+        this.p1 = new Player("Player 1", this.numOfMonster);
+        this.p2 = new Player("Player 2", this.numOfMonster);
         System.out.println("Each player gets to choose " + this.numOfMonster + " Monsters.");
         System.out.println("_".repeat(100));
+    }
+
+    public Game(Player p1, Player p2) {
+        this.numOfMonster = RandomNumber.randomGeneratedNumber(5, 2); //Random number 2-5
+        this.p1 = p1;
+        this.p1.setNumOfMonsters(numOfMonster);
+        this.p2 = p2;
+        this.p2.setNumOfMonsters(numOfMonster);
+        System.out.println("Each player gets to choose " + this.numOfMonster + " Monsters.");
+        System.out.println("_".repeat(100));
+
     }
 
     public void play() {
@@ -28,15 +39,14 @@ public class Game {
     private boolean end() {
         boolean p1Dead = true;
         boolean p2Dead = true;
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < numOfMonster-1; i++) {
             if ((p1.team[i].getHitpoints() > 0)) {
                 p1Dead = false;
             }
         }
 
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < numOfMonster-1; i++) {
             if (p2.team[i].getHitpoints() > 0) {
-                //System.out.println("p2 " + " " + i + " " + p2.team[i].getHitpoints());
                 p2Dead = false;
             }
         }
