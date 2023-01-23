@@ -5,7 +5,8 @@ public class Mummy extends Monster {
     private int attackCounter;
 
     public Mummy() {
-        super(200, 50, "supernatural.strikeable.monster.Mummy");
+        super(MonsterType.MUMMY.getHitpoints(), MonsterType
+                .MUMMY.getDamage(), MonsterType.MUMMY.getMonsterName());
     }
 
     @Override

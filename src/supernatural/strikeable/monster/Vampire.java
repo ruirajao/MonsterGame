@@ -2,10 +2,10 @@ package supernatural.strikeable.monster;
 
 public class Vampire extends Monster {
 
-    private final String name = "supernatural.strikeable.monster.Vampire";
 
     public Vampire() {
-        super(120, 20, "supernatural.strikeable.monster.Vampire");
+        super(MonsterType.WEREWOLF.getHitpoints(), MonsterType
+                .WEREWOLF.getDamage(), MonsterType.WEREWOLF.getMonsterName());
     }
 
     @Override

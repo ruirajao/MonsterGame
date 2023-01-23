@@ -1,6 +1,6 @@
 package supernatural;
 
-public class Fairy {
+public class Fairy extends Supernatural {
 
 
 }

@@ -1,14 +1,14 @@
 package supernatural.strikeable.monster;
 
-public abstract class Monster {
+import supernatural.Supernatural;
+import supernatural.strikeable.Strikeable;
+
+public abstract class Monster extends Supernatural implements Strikeable {
     private int hitpoints;
-    private final int damage;
-    private final String monsterName;
 
     public Monster(int hitpoints, int damage, String monsterName) {
+        super(damage, monsterName);
         this.hitpoints = hitpoints;
-        this.damage = damage;
-        this.monsterName = monsterName;
     }
 
     public abstract void attack(Monster target);
@@ -28,11 +28,11 @@ public abstract class Monster {
         this.hitpoints = hitpoints;
     }
 
-    public int getDamage() {
+    /*public int getDamage() {
         return damage;
     }
 
     public String getMonsterName() {
         return monsterName;
-    }
+    }*/
 }

@@ -3,7 +3,8 @@ package supernatural.strikeable.monster;
 public class Werewolf extends Monster {
 
     public Werewolf() {
-        super(150, 30, "supernatural.strikeable.monster.Werewolf");
+        super(MonsterType.WEREWOLF.getHitpoints(), MonsterType
+                .WEREWOLF.getDamage(), MonsterType.WEREWOLF.getMonsterName());
     }
 
     @Override
@@ -13,4 +14,5 @@ public class Werewolf extends Monster {
                 target.getMonsterName() + " now has " + target.getHitpoints() + " hitpoints.");
         System.out.println(".".repeat(150));
     }
+
 }
