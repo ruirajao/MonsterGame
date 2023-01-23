@@ -6,28 +6,22 @@ import supernatural.strikeable.monster.Vampire;
 public class Player {
     private final String nickname;
     public Monster[] team;
-    private int numOfMonsters;
+    private int numbOfDeadMonsters;
 
-    public Player(String nickname, int numOfMonsters) {
-        this.nickname = nickname;
-        this.numOfMonsters = numOfMonsters;
-        this.team = new Monster[numOfMonsters];
-    }
 
     public Player(String nickname) {
         this.nickname = nickname;
+        this.numbOfDeadMonsters = 0;
     }
 
     public void setNumOfMonsters(int numOfMonsters) {
-        this.numOfMonsters = numOfMonsters;
         this.team = new Monster[numOfMonsters];
-
     }
 
     public void pickTeam() {
-        int numWerewolf = RandomNumber.randomGeneratedNumber(numOfMonsters, 0);
-        int numVampire = RandomNumber.randomGeneratedNumber(numOfMonsters-numWerewolf, 0);
-        int numMummy = numOfMonsters-numWerewolf-numVampire;
+        int numWerewolf = RandomNumber.randomGeneratedNumber(team.length, 0);
+        int numVampire = RandomNumber.randomGeneratedNumber(team.length-numWerewolf, 0);
+        int numMummy = team.length-numWerewolf-numVampire;
 
         int index = 0;
         for (int i = 0; i < numWerewolf; i++) {
@@ -44,30 +38,36 @@ public class Player {
         }
     }
 
-    public void pickAttacker(Monster defender) {
-        int indexAttacker = RandomNumber.randomGeneratedNumber(numOfMonsters, 0);
-
+    public int attack() {
+        int indexAttacker = RandomNumber.randomGeneratedNumber(team.length, 0);
         while (!team[indexAttacker].isAlive()) {
-            indexAttacker = RandomNumber.randomGeneratedNumber(numOfMonsters, 0);
+            indexAttacker = RandomNumber.randomGeneratedNumber(team.length, 0);
         }
-
         System.out.println(this.nickname + "´s picked " + team[indexAttacker].getMonsterName() + " as an attacker.");
-        team[indexAttacker].attack();
+        return team[indexAttacker].attackDamage();
+    }
 
+    public int getNumbOfDeadMonsters() {
+        return numbOfDeadMonsters;
     }
 
     public void pickDefender(int damage) {
-        int indexDefender = RandomNumber.randomGeneratedNumber(numOfMonsters, 0);
+        int indexDefender = RandomNumber.randomGeneratedNumber(team.length, 0);
         while (!team[indexDefender].isAlive()) {
-            indexDefender = RandomNumber.randomGeneratedNumber(numOfMonsters, 0);
+            indexDefender = RandomNumber.randomGeneratedNumber(team.length, 0);
         }
-        System.out.println("You picked " + team[indexDefender].getMonsterName() + " as a defender.");
         team[indexDefender].setHitpoints(team[indexDefender].getHitpoints()-damage);
-
+        System.out.println(this.nickname + " picked " + team[indexDefender].getMonsterName() + " as a defender.\n" +
+                team[indexDefender].getMonsterName() + " now has " + team[indexDefender].getHitpoints() + " hitpoints.");
         if (team[indexDefender].getHitpoints() <= 0){
+            this.numbOfDeadMonsters++;
+            team[indexDefender].kill();
         }
+        System.out.println(".".repeat(150));
     }
     public String getNickname() {
         return nickname;
     }
+
+
 }

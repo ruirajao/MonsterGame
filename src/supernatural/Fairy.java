@@ -9,9 +9,8 @@ public class Fairy extends Supernatural {
     }
 
     @Override
-    public int attack() {
+    public int attackDamage() {
         System.out.println("Lulu attack for " + this.getDamage() + " damage.");
-        System.out.println(".".repeat(150));
         return this.getDamage();
     }
 }

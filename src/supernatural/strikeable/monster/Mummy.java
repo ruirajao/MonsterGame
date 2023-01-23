@@ -10,17 +10,16 @@ public class Mummy extends Monster {
     }
 
     @Override
-    public int attack() {
+    public int attackDamage() {
         attackCounter++;
         if (attackCounter == 3) {
             this.setHitpoints(this.getHitpoints() - this.getDamage() / 2);
-            System.out.println("supernatural.strikeable.monster.Mummy failed the attack and got some bandages unrolled. It took "
+            System.out.println("Mummy failed the attack and got some bandages unrolled. It took "
                     + (this.getDamage() / 2) + " damage.");
             attackCounter = 0;
             return 0;
         }
-        System.out.println("Amumu attacks for " + this.getDamage() + " damage.");
-        System.out.println(".".repeat(150));
+        System.out.println("Mummy attacks for " + this.getDamage() + " damage.");
         return this.getDamage();
     }
 }

@@ -1,9 +1,9 @@
 package supernatural.strikeable.monster;
 
 public enum MonsterType {
-    WEREWOLF("Warwick",150, 30),
-    VAMPIRE ("Vladimir",120, 20),
-    MUMMY("Amumu",200, 50);
+    WEREWOLF("Werewolf",150, 30),
+    VAMPIRE ("Vampire",120, 20),
+    MUMMY("Mummy",200, 50);
 
     private String monsterName;
     private int hitpoints;

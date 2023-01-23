@@ -1,7 +1,5 @@
 package supernatural;
 
-import supernatural.strikeable.monster.Monster;
-
 public abstract class Supernatural {
 
     private final int damage;
@@ -12,7 +10,7 @@ public abstract class Supernatural {
         this.monsterName = monsterName;
     }
 
-    public abstract int attack();
+    public abstract int attackDamage();
 
     public int getDamage() {
         return damage;

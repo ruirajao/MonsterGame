@@ -1,3 +1,12 @@
+/*
+1. Implementar obstaculos (Witch e Fairy)
+3. Ataques consecutivos da mummy é por objeto
+4. Ciclos for (index++) - MIGUEL
+5. No pickTeam(), imprimir a equipa de cada jogador - MIGUEL
+6. no game: Otimizar os turnos e otimizar o codigo do check end a meio
+
+ */
+
 
 public class Main {
 

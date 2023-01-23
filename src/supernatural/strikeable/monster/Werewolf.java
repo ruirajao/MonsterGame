@@ -8,9 +8,8 @@ public class Werewolf extends Monster {
     }
 
     @Override
-    public int attack() {
-        System.out.println("Warwick attacks for " + this.getDamage() + " damage.");
-        System.out.println(".".repeat(150));
+    public int attackDamage() {
+        System.out.println("Werewolf attacks for " + this.getDamage() + " damage.");
         return this.getDamage();
     }
 

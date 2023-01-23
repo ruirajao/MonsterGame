@@ -9,18 +9,17 @@ public class Vampire extends Monster {
     }
 
     @Override
-    public int attack() {
+    public int attackDamage() {
         if (bite() == 0) {
             setHitpoints(getHitpoints() + (getDamage() / 2));
         }
 
-        System.out.println("Vladimir attacks for " + this.getDamage() + " damage.");
-        System.out.println(".".repeat(150));
+        System.out.println("Vampire attacks for " + this.getDamage() + " damage.");
         return this.getDamage();
     }
 
     public int bite() {
-        System.out.println("supernatural.strikeable.monster.Vampire has bitten his target. He recovered " + (this.getDamage() / 2) + " hitpoints.");
+        System.out.println("Vampire has bitten his target. He recovered " + (this.getDamage() / 2) + " hitpoints.");
         return (int) (Math.random() * 2);
     }
 }
