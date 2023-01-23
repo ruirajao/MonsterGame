@@ -1,4 +1,4 @@
 package supernatural;
 
-public class Supernatural {
+public abstract class Supernatural {
 }
