@@ -12,5 +12,4 @@ public class Werewolf extends Monster {
         System.out.println("Werewolf attacks for " + this.getDamage() + " damage.");
         return this.getDamage();
     }
-
 }

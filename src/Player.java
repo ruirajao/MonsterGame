@@ -8,7 +8,6 @@ public class Player {
     public Monster[] team;
     private int numbOfDeadMonsters;
 
-
     public Player(String nickname) {
         this.nickname = nickname;
         this.numbOfDeadMonsters = 0;
@@ -19,23 +18,32 @@ public class Player {
     }
 
     public void pickTeam() {
-        int numWerewolf = RandomNumber.randomGeneratedNumber(team.length, 0);
-        int numVampire = RandomNumber.randomGeneratedNumber(team.length-numWerewolf, 0);
-        int numMummy = team.length-numWerewolf-numVampire;
+        int numWerewolf = 0;
+        int numVampire = 0;
+        int numMummy = 0;
 
-        int index = 0;
-        for (int i = 0; i < numWerewolf; i++) {
-            team[index] = new Werewolf();
-            index++;
+        for (int i = 0; i < team.length; i++) {
+            int monsterPick = RandomNumber.randomGeneratedNumber(3, 1);
+            switch (monsterPick) {
+                case 1:
+                    team[i] = new Werewolf();
+                    numWerewolf++;
+                    break;
+                case 2:
+                    team[i] = new Vampire();
+                    numVampire++;
+                    break;
+                case 3:
+                    team[i] = new Mummy();
+                    numMummy++;
+                    break;
+            }
         }
-        for (int j = 0; j < numVampire; j++) {
-            team[index] = new Vampire();
-            index++;
-        }
-        for (int k = 0; k < numMummy; k++) {
-            team[index] = new Mummy();
-            index++;
-        }
+        System.out.println(this.nickname + " has:\n" +
+                "- " + numWerewolf + " Werewolf(s) \n" +
+                "- " + numVampire + " Vampire(s)\n" +
+                "- " + numMummy + " Mummy(ies)");
+        System.out.println("=".repeat(50));
     }
 
     public int attack() {
@@ -56,18 +64,17 @@ public class Player {
         while (!team[indexDefender].isAlive()) {
             indexDefender = RandomNumber.randomGeneratedNumber(team.length, 0);
         }
-        team[indexDefender].setHitpoints(team[indexDefender].getHitpoints()-damage);
+        team[indexDefender].setHitpoints(team[indexDefender].getHitpoints() - damage);
         System.out.println(this.nickname + " picked " + team[indexDefender].getMonsterName() + " as a defender.\n" +
                 team[indexDefender].getMonsterName() + " now has " + team[indexDefender].getHitpoints() + " hitpoints.");
-        if (team[indexDefender].getHitpoints() <= 0){
+        if (team[indexDefender].getHitpoints() <= 0) {
             this.numbOfDeadMonsters++;
             team[indexDefender].kill();
         }
         System.out.println(".".repeat(150));
     }
+
     public String getNickname() {
         return nickname;
     }
-
-
 }

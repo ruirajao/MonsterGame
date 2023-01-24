@@ -2,7 +2,6 @@ package supernatural.strikeable.monster;
 
 public class Vampire extends Monster {
 
-
     public Vampire() {
         super(MonsterType.VAMPIRE.getHitpoints(), MonsterType
                 .VAMPIRE.getDamage(), MonsterType.VAMPIRE.getMonsterName());
@@ -13,7 +12,6 @@ public class Vampire extends Monster {
         if (bite() == 0) {
             setHitpoints(getHitpoints() + (getDamage() / 2));
         }
-
         System.out.println("Vampire attacks for " + this.getDamage() + " damage.");
         return this.getDamage();
     }

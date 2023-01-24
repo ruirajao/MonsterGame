@@ -22,15 +22,19 @@ public class Witch extends Supernatural implements Strikeable {
 
     @Override
     public boolean isAlive() {
-        return false;
+        return isAlive;
     }
 
     @Override
     public int getHitpoints() {
-        return 0;
+        return this.hitpoints;
     }
 
     @Override
     public void setHitpoints(int hitpoints) {
+        this.hitpoints = hitpoints;
+        if (this.hitpoints <= 0) {
+            isAlive = false;
+        }
     }
 }
