@@ -1,7 +1,6 @@
 package supernatural.strikeable;
 
 import supernatural.Supernatural;
-import supernatural.strikeable.monster.Monster;
 
 public class Witch extends Supernatural implements Strikeable {
 
@@ -22,7 +21,7 @@ public class Witch extends Supernatural implements Strikeable {
 
     @Override
     public boolean isAlive() {
-        return isAlive;
+        return this.hitpoints > 0;
     }
 
     @Override
@@ -31,8 +30,8 @@ public class Witch extends Supernatural implements Strikeable {
     }
 
     @Override
-    public void setHitpoints(int hitpoints) {
-        this.hitpoints = hitpoints;
+    public void takeDamage(int damage) {
+        this.hitpoints -= damage;
         if (this.hitpoints <= 0) {
             isAlive = false;
         }

@@ -17,7 +17,6 @@ public abstract class Monster extends Supernatural implements Strikeable {
     public void kill() {
         this.isAlive = false;
         System.out.println(this.getMonsterName() + " has been killed.");
-
     }
 
     @Override
@@ -29,15 +28,11 @@ public abstract class Monster extends Supernatural implements Strikeable {
         return hitpoints;
     }
 
+    public void takeDamage(int damage) {
+        this.hitpoints -= damage;
+    }
+
     public void setHitpoints(int hitpoints) {
         this.hitpoints = hitpoints;
     }
-
-    /*public int getDamage() {
-        return damage;
-    }
-
-    public String getMonsterName() {
-        return monsterName;
-    }*/
 }

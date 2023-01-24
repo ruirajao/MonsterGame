@@ -5,9 +5,9 @@ public enum MonsterType {
     VAMPIRE ("Vampire",120, 20),
     MUMMY("Mummy",200, 50);
 
-    private String monsterName;
+    private final String monsterName;
     private int hitpoints;
-    private int damage;
+    private final int damage;
 
     MonsterType(String monsterName, int hitpoints, int damage) {
         this.monsterName = monsterName;
@@ -18,6 +18,8 @@ public enum MonsterType {
     public int getHitpoints() {
         return hitpoints;
     }
+
+
 
     public int getDamage() {
         return damage;

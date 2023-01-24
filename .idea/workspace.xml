@@ -7,6 +7,15 @@
     <list default="true" id="65b18c71-5875-4640-bd28-12efd8605224" name="Changes" comment="Witch e Fairy implemented;&#10;Falha no end();">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RandomNumber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RandomNumber.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/supernatural/strikeable/Strikeable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/supernatural/strikeable/Strikeable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/supernatural/strikeable/Witch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/supernatural/strikeable/Witch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/supernatural/strikeable/monster/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/supernatural/strikeable/monster/Monster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/supernatural/strikeable/monster/MonsterType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/supernatural/strikeable/monster/MonsterType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/supernatural/strikeable/monster/Mummy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/supernatural/strikeable/monster/Mummy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/supernatural/strikeable/monster/Vampire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/supernatural/strikeable/monster/Vampire.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +41,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="MonstersWithInterfaces" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />

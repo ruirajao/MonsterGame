@@ -6,7 +6,5 @@ public interface Strikeable {
 
     int getHitpoints();
 
-    void setHitpoints(int hitpoints);
-
-    public abstract int getDamage();
+    void takeDamage(int damage);
 }

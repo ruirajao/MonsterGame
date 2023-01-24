@@ -7,10 +7,13 @@ public class Vampire extends Monster {
                 .VAMPIRE.getDamage(), MonsterType.VAMPIRE.getMonsterName());
     }
 
+    public void recoverHealth(int healing){
+        this.setHitpoints(this.getHitpoints()+healing);
+    }
     @Override
     public int attackDamage() {
         if (bite() == 0) {
-            setHitpoints(getHitpoints() + (getDamage() / 2));
+            this.recoverHealth((getDamage() / 2));
         }
         System.out.println("Vampire attacks for " + this.getDamage() + " damage.");
         return this.getDamage();
