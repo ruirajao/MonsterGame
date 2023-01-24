@@ -5,7 +5,6 @@ public class Game {
     private Player p1;
     private Player p2;
     private int numOfMonster;
-    //private Supernatural[] obstacle = {new Fairy(), new Witch()};
 
     public Game(Player p1, Player p2) {
         this.numOfMonster = RandomNumber.randomGeneratedNumber(2, 2); //Random number 2-5
@@ -21,16 +20,17 @@ public class Game {
     public void play() {
         this.p1.pickTeam();
         this.p2.pickTeam();
-        while (!end()) {
-            obstacleChance();
-            if (end()) {
-                return;
+        int goesFirst = RandomNumber.randomGeneratedNumber(5, 2);
+        for (int i = goesFirst; i < 1000; i++) {
+            while (!end()) {
+                obstacleChance();
+                if (end()) {
+                    return;
+                }
+                if (i % 2 == 0) {
+                    this.p1.pickDefender(p2.attack());
+                } else this.p2.pickDefender(p1.attack());
             }
-            this.p1.pickDefender(p2.attack());
-            if (end()) {
-                return;
-            }
-            this.p2.pickDefender(p1.attack());
         }
     }
 
@@ -40,23 +40,28 @@ public class Game {
             return;
         }
         this.p2.pickDefender(fairy.attackDamage());
-        end();
     }
 
     private void witchAttack(Witch witch) {
         while (witch.isAlive() == true) {
             this.p1.pickDefender(witch.attackDamage());
-            witch.setHitpoints(witch.getHitpoints() - (p1.attack()/2));
-            if(end()) {
+            if (end()) {
+                return;
+            }
+            witch.setHitpoints(witch.getHitpoints() - (p1.attack() / 2));
+            if (!witch.isAlive()) {
                 return;
             }
             this.p2.pickDefender(witch.attackDamage());
-            witch.setHitpoints(witch.getHitpoints() - (p2.attack()/2));
+            if (end()) {
+                return;
+            }
+            witch.setHitpoints(witch.getHitpoints() - (p2.attack() / 2));
         }
     }
 
     public void obstacleChance() {
-        int randomObstacleChance = RandomNumber.randomGeneratedNumber(2, 2);
+        int randomObstacleChance = RandomNumber.randomGeneratedNumber(10, 1);
         switch (randomObstacleChance) {
             case 1:
                 Fairy fairy = new Fairy();
