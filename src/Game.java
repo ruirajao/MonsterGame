@@ -21,65 +21,83 @@ public class Game {
     public void play() {
         this.p1.pickTeam();
         this.p2.pickTeam();
-        while (!end()) {
-            obstacleChance();
-            if (end()) {
+        boolean checkEndGame = false;
+        while (!checkEndGame) {
+            checkEndGame = obstacleChance();
+            if (checkEndGame) {
                 return;
             }
             this.p1.pickDefender(p2.attack());
-            if (end()) {
+            if (p1.getNumbOfDeadMonsters() == numOfMonster) {
+                System.out.println(p2.getNickname() + " WON!");
                 return;
             }
             this.p2.pickDefender(p1.attack());
+            if (p2.getNumbOfDeadMonsters() == numOfMonster) {
+                System.out.println(p1.getNickname() + " WON!");
+                return;
+            }
         }
     }
 
-    private void fairyAttack(Fairy fairy) {
+    private boolean fairyAttack(Fairy fairy) {
         this.p1.pickDefender(fairy.attackDamage());
         if (end()) {
-            return;
+            return true;
         }
         this.p2.pickDefender(fairy.attackDamage());
-        end();
+        if (end()) {
+            return true;
+        }
+        return false;
     }
 
-    private void witchAttack(Witch witch) {
+    private boolean witchAttack(Witch witch) {
         while (witch.isAlive() == true) {
             this.p1.pickDefender(witch.attackDamage());
             witch.setHitpoints(witch.getHitpoints() - (p1.attack()/2));
+            if (witch.getHitpoints() <= 0) {
+                witch.setAlive(false);
+            }
             if(end()) {
-                return;
+                return true;
             }
             this.p2.pickDefender(witch.attackDamage());
+            if(end()) {
+                return true;
+            }
             witch.setHitpoints(witch.getHitpoints() - (p2.attack()/2));
+            if (witch.getHitpoints() <= 0) {
+                witch.setAlive(false);
+            }
         }
+        return false;
     }
 
-    public void obstacleChance() {
+    public boolean obstacleChance() {
         int randomObstacleChance = RandomNumber.randomGeneratedNumber(2, 2);
         switch (randomObstacleChance) {
             case 1:
                 Fairy fairy = new Fairy();
                 System.out.println("A fairy has appeared.");
-                fairyAttack(fairy);
-                break;
+                return fairyAttack(fairy);
             case 2:
                 Witch witch = new Witch();
                 System.out.println("A witch has appeared");
-                witchAttack(witch);
-                break;
+                return witchAttack(witch);
             default:
                 break;
         }
+        return false;
     }
 
     private boolean end() {
         if (p1.getNumbOfDeadMonsters() == numOfMonster) {
-            System.out.println(p2.getNickname() + " has won the game.");
+            //System.out.println(p2.getNickname() + " has won the game.");
             return true;
         }
         if (p2.getNumbOfDeadMonsters() == numOfMonster) {
-            System.out.println(p1.getNickname() + " has won the game.");
+            //System.out.println(p1.getNickname() + " has won the game.");
             return true;
         }
         return false;

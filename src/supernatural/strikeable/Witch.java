@@ -8,6 +8,10 @@ public class Witch extends Supernatural implements Strikeable {
     private int hitpoints;
     private boolean isAlive;
 
+    public void setAlive(boolean alive) {
+        isAlive = alive;
+    }
+
     public Witch() {
         super(20, "Witch");
         this.hitpoints = 100;
