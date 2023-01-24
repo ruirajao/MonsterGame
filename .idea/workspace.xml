@@ -6,18 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="65b18c71-5875-4640-bd28-12efd8605224" name="Changes" comment="- rui_branch first commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/supernatural/Fairy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/supernatural/Fairy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/supernatural/Supernatural.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/supernatural/Supernatural.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/supernatural/strikeable/Strikeable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/supernatural/strikeable/Strikeable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/supernatural/strikeable/Witch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/supernatural/strikeable/Witch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/supernatural/strikeable/monster/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/supernatural/strikeable/monster/Monster.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/supernatural/strikeable/monster/MonsterType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/supernatural/strikeable/monster/MonsterType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/supernatural/strikeable/monster/Mummy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/supernatural/strikeable/monster/Mummy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/supernatural/strikeable/monster/Vampire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/supernatural/strikeable/monster/Vampire.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/supernatural/strikeable/monster/Werewolf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/supernatural/strikeable/monster/Werewolf.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
